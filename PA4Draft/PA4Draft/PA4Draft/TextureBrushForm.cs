@@ -37,7 +37,7 @@ namespace PA4Draft
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     imageSelected = new Bitmap(ofd.FileName);
-                    if(xAxis == 1)
+                    if(xAxis == -1)
                     {
                         imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     }
