@@ -19,7 +19,7 @@ namespace PA4Draft
         public TextureBrushForm()
         {
             InitializeComponent();
-            PictureBox pictureBox = new PictureBox();          
+            Image imageSelected = this.imageSelected;     
         }
 
         private void label1_Click(object sender, EventArgs e)
