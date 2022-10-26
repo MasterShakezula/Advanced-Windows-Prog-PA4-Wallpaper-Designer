@@ -11,35 +11,56 @@ using System.Windows.Forms;
 
 namespace PA4Draft
 {
+    
+    
     public partial class PickLinearGradient : Form
     {
+        Color startingColors, endingColors;
+        int size;
+
         public PickLinearGradient()
         {
+            startingColors = new Color();
+            endingColors = new Color();
+            
             InitializeComponent();
-            pickedColor = SystemColors.ButtonFace;
+            NumericUpDown numericUpDown1 = this.numericUpDown1;
+            size = (int)numericUpDown1.Value;
+            //pickedColor = SystemColors.ButtonFace;
         }
 
-        private void Color_Click(object sender, EventArgs e)
+        private void startingColorChange(object sender, EventArgs e)
         {
             DialogResult d = colorDialog1.ShowDialog();
             if (d == DialogResult.OK)
-                pickedColor = colorDialog1.Color;
-            pickedColor = Color.FromArgb((byte)opacity.Value,pickedColor.R,pickedColor.G,pickedColor.B);
-            color.BackColor = pickedColor;
+                startingColors = colorDialog1.Color;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            size = (int)numericUpDown1.Value;
+        }
 
-
-
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
-        private void Opacity_ValueChanged(object sender, EventArgs e)
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            pickedColor = Color.FromArgb((byte)opacity.Value, pickedColor.R, pickedColor.G, pickedColor.B);
-            color.BackColor = pickedColor;
+
+        }
+
+        private void diagonal_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void endingColorChange(object sender, EventArgs e)
+        {
+            DialogResult d = colorDialog2.ShowDialog();
+            if (d == DialogResult.OK)
+               endingColors = colorDialog2.Color;
         }
     }
 }

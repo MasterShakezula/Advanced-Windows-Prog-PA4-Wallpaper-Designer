@@ -36,6 +36,7 @@ namespace PA4Draft
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.ForegroundColor = new System.Windows.Forms.Button();
             this.BackgroundColor = new System.Windows.Forms.Button();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // ok
@@ -68,6 +69,7 @@ namespace PA4Draft
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(340, 164);
             this.listBox1.TabIndex = 6;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // ForegroundColor
             // 
@@ -87,6 +89,7 @@ namespace PA4Draft
             this.BackgroundColor.TabIndex = 8;
             this.BackgroundColor.Text = "Background Color";
             this.BackgroundColor.UseVisualStyleBackColor = true;
+            this.BackgroundColor.Click += new System.EventHandler(this.BackgroundColorChange);
             // 
             // PickHatchBrush
             // 
@@ -115,5 +118,6 @@ namespace PA4Draft
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button ForegroundColor;
         private System.Windows.Forms.Button BackgroundColor;
+        private System.Windows.Forms.ColorDialog colorDialog2;
     }
 }

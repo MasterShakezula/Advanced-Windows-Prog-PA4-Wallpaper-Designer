@@ -15,6 +15,7 @@ namespace PA4Draft
 {
     public partial class PickHatchBrush : Form
     {
+        public HatchStyle hatch;
         public PickHatchBrush()
         {
             InitializeComponent();
@@ -22,8 +23,14 @@ namespace PA4Draft
             {
                 this.listBox1.Items.Add(styleName);
             }
+            hatch = new HatchStyle();
             
             pickedColor = SystemColors.ButtonFace;
+            
+            
+            
+            
+
             
         }
 
@@ -32,7 +39,7 @@ namespace PA4Draft
             DialogResult d = colorDialog1.ShowDialog();
             if (d == DialogResult.OK)
                 pickedColor = colorDialog1.Color;
-            //pickedColor = Color.FromArgb((byte)opacity.Value,pickedColor.R,pickedColor.G,pickedColor.B);
+            //remove pickedColor = Color.FromArgb((byte)opacity.Value,pickedColor.R,pickedColor.G,pickedColor.B);
             //color.BackColor = pickedColor;
         }
 
@@ -42,13 +49,25 @@ namespace PA4Draft
             if (d == DialogResult.OK)
                 pickedColor = colorDialog1.Color;
 
-            pickedColor = Color.FromArgb((byte) pickedColor.R, pickedColor.G, pickedColor.B);
-            //color.BackColor = pickedColor;
+           // pickedColor = Color.FromArgb((byte) pickedColor.R, pickedColor.G, pickedColor.B);
+            ForeColor = pickedColor; //removed ForegroundColor.
         }
 
         private void BackgroundColorChange(object sender, EventArgs e)
         {
+            DialogResult d = colorDialog2.ShowDialog();
+            if (d == DialogResult.OK)
+                pickedColor = colorDialog2.Color;
 
+            //pickedColor = Color.FromArgb((byte)pickedColor.R, pickedColor.G, pickedColor.B);
+            BackColor = pickedColor; //removed BackgroundColor.
+        }
+
+        
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hatch = (HatchStyle)this.listBox1.SelectedIndex;
         }
     }
 }
