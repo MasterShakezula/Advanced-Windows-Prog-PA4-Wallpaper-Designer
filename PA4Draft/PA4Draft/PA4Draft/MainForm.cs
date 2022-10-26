@@ -293,7 +293,11 @@ namespace PA4Draft
                 return;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(imageSelected);
+=======
+            
+>>>>>>> Stashed changes
 =======
             
 >>>>>>> Stashed changes
