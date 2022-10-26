@@ -13,6 +13,7 @@ namespace PA4Draft
 {
     public partial class MainForm : Form
     {
+        Image imageSelected;
         public enum MirrorStyle { 
             NoMirroring,
             XAxis,
@@ -285,10 +286,12 @@ namespace PA4Draft
         {
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return; //make a PickTextureBrush form
-            PickTextureBrush t = new PickTextureBrush();
+            
+            TextureBrushForm t = new TextureBrushForm();
             DialogResult d = t.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
+            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(imageSelected);
         }
 
         private void HatchBrush_Click(object sender, EventArgs e)

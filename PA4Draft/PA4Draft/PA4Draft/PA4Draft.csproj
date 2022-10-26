@@ -109,6 +109,12 @@
       <DependentUpon>Signature.cs</DependentUpon>
     </Compile>
     <Compile Include="Shape.cs" />
+    <Compile Include="TextureBrushForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextureBrushForm.Designer.cs">
+      <DependentUpon>TextureBrushForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddEllipse.resx">
       <DependentUpon>AddEllipse.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +153,9 @@
     </Compile>
     <EmbeddedResource Include="Signature.resx">
       <DependentUpon>Signature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextureBrushForm.resx">
+      <DependentUpon>TextureBrushForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
