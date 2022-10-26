@@ -30,31 +30,21 @@ namespace PA4Draft
         /// </summary>
         private void InitializeComponent()
         {
-            this.color = new System.Windows.Forms.Button();
             this.ok = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.opacity = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.opacity)).BeginInit();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ForegroundColor = new System.Windows.Forms.Button();
+            this.BackgroundColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // color
-            // 
-            this.color.Location = new System.Drawing.Point(152, 145);
-            this.color.Name = "color";
-            this.color.Size = new System.Drawing.Size(75, 23);
-            this.color.TabIndex = 1;
-            this.color.Text = "Pick a Color";
-            this.color.UseVisualStyleBackColor = true;
-            this.color.Click += new System.EventHandler(this.Color_Click);
             // 
             // ok
             // 
             this.ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ok.Location = new System.Drawing.Point(70, 244);
+            this.ok.Location = new System.Drawing.Point(105, 375);
+            this.ok.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(75, 23);
+            this.ok.Size = new System.Drawing.Size(112, 35);
             this.ok.TabIndex = 2;
             this.ok.Text = "OK";
             this.ok.UseVisualStyleBackColor = true;
@@ -62,62 +52,68 @@ namespace PA4Draft
             // cancel
             // 
             this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancel.Location = new System.Drawing.Point(222, 244);
+            this.cancel.Location = new System.Drawing.Point(333, 375);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.Size = new System.Drawing.Size(112, 35);
             this.cancel.TabIndex = 3;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
             // 
-            // opacity
+            // listBox1
             // 
-            this.opacity.Location = new System.Drawing.Point(12, 174);
-            this.opacity.Maximum = 255;
-            this.opacity.Name = "opacity";
-            this.opacity.Size = new System.Drawing.Size(359, 45);
-            this.opacity.SmallChange = 5;
-            this.opacity.TabIndex = 4;
-            this.opacity.Value = 255;
-            this.opacity.ValueChanged += new System.EventHandler(this.Opacity_ValueChanged);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(105, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(340, 164);
+            this.listBox1.TabIndex = 6;
             // 
-            // label1
+            // ForegroundColor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Opacity";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.ForegroundColor.Location = new System.Drawing.Point(333, 285);
+            this.ForegroundColor.Name = "ForegroundColor";
+            this.ForegroundColor.Size = new System.Drawing.Size(158, 41);
+            this.ForegroundColor.TabIndex = 7;
+            this.ForegroundColor.Text = "Foreground Color";
+            this.ForegroundColor.UseVisualStyleBackColor = true;
+            this.ForegroundColor.Click += new System.EventHandler(this.ForegroundColorChange);
             // 
-            // PickSolidBrush
+            // BackgroundColor
+            // 
+            this.BackgroundColor.Location = new System.Drawing.Point(105, 285);
+            this.BackgroundColor.Name = "BackgroundColor";
+            this.BackgroundColor.Size = new System.Drawing.Size(167, 51);
+            this.BackgroundColor.TabIndex = 8;
+            this.BackgroundColor.Text = "Background Color";
+            this.BackgroundColor.UseVisualStyleBackColor = true;
+            // 
+            // PickHatchBrush
             // 
             this.AcceptButton = this.ok;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancel;
-            this.ClientSize = new System.Drawing.Size(383, 279);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.opacity);
+            this.ClientSize = new System.Drawing.Size(574, 429);
+            this.Controls.Add(this.BackgroundColor);
+            this.Controls.Add(this.ForegroundColor);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.ok);
-            this.Controls.Add(this.color);
-            this.Name = "PickSolidBrush";
-            this.Text = "Pick Solid Brush";
-            ((System.ComponentModel.ISupportInitialize)(this.opacity)).EndInit();
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "PickHatchBrush";
+            this.Text = "Pick Hatch Brush";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button color;
         private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.ColorDialog colorDialog1;
         internal Color pickedColor;
-        private System.Windows.Forms.TrackBar opacity;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button ForegroundColor;
+        private System.Windows.Forms.Button BackgroundColor;
     }
 }

@@ -154,18 +154,7 @@ namespace PA4Draft
 
         }
 
-        private void SolidBrush_Click(object sender, EventArgs e)
-        {
-            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
-                return;
-            PickSolidBrush p = new PickSolidBrush(); //this is a form created
-            DialogResult d = p.ShowDialog(); //show the form
-            if (d != DialogResult.OK)
-                return;
-            shapes[shapeList.SelectedIndex].fillBrush = new SolidBrush(p.pickedColor);
-            updateTileDesign();
-            updateShapeList(shapeList.SelectedIndex);
-        }
+        
 
         private void preview_Click(object sender, EventArgs e)
         {
@@ -279,27 +268,47 @@ namespace PA4Draft
         {
             addShapeButton.Enabled =shapeType.SelectedIndex>=0;
         }
+        private void SolidBrush_Click(object sender, EventArgs e)
+        {
+            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
+                return;
+            PickSolidBrush p = new PickSolidBrush(); //this is a form created
+            DialogResult d = p.ShowDialog(); //show the form
+            if (d != DialogResult.OK)
+                return;
+            shapes[shapeList.SelectedIndex].fillBrush = new SolidBrush(p.pickedColor);
+            updateTileDesign();
+            updateShapeList(shapeList.SelectedIndex);
+        } // use this fucntion as references for the other three
 
         private void TextureBrush_Click(object sender, EventArgs e)
         {
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return; //make a PickTextureBrush form
-           // PickTextureBrush t = new PickTextureBrush();
+            PickTextureBrush t = new PickTextureBrush();
+            DialogResult d = t.ShowDialog(); //show the form
+            if (d != DialogResult.OK)
+                return;
         }
 
         private void HatchBrush_Click(object sender, EventArgs e)
         {
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return; //make a PickHatchBrush form
-                        // PickHatchBrush h = new PickHatchBrush();
-
+            PickHatchBrush h = new PickHatchBrush();
+            DialogResult d = h.ShowDialog(); //show the form
+            if (d != DialogResult.OK)
+                return;
         }
 
         private void LinearGradient_Click(object sender, EventArgs e)
         {
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return; //make a PickLinearGradient form
-                        // PickLinearGradient l = new PickLinearGradient();
+            PickLinearGradient l = new PickLinearGradient();
+            DialogResult d = l.ShowDialog(); //show the form
+            if (d != DialogResult.OK)
+                return;
         }
     }
 }
