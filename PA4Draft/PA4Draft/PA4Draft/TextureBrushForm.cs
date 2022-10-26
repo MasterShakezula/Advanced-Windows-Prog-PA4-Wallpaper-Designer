@@ -19,9 +19,7 @@ namespace PA4Draft
         public TextureBrushForm()
         {
             InitializeComponent();
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = imageSelected;
-            
+            PictureBox pictureBox = new PictureBox();          
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,26 +37,21 @@ namespace PA4Draft
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     imageSelected = new Bitmap(ofd.FileName);
-                }
-
-
-                if (xAxis == -1)
-                {
-                   imageSelected = imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipX));
-                }
-                if (yAxis == -1)
-                {
-                    imageSelected = imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipY));
-                }
-                if (xAxis == -1 && yAxis == -1)
-                {
-                    imageSelected = imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipXY));
-                }
-
+                    if(xAxis == 1)
+                    {
+                        imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    }
+                    if (yAxis == -1)
+                    {
+                        imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                    }
+                    if (xAxis == -1 && yAxis == -1)
+                    {
+                        imageSelected.RotateFlip(RotateFlipType.RotateNoneFlipXY);
+                    }
                     TextureBrush tBrush = new TextureBrush(imageSelected);
                     tBrush.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
-                
-                
+                }                                              
             }
         }
 

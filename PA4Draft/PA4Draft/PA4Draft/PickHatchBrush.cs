@@ -25,13 +25,7 @@ namespace PA4Draft
             }
             hatch = new HatchStyle();
             
-            pickedColor = SystemColors.ButtonFace;
-            
-            
-            
-            
-
-            
+            pickedColor = SystemColors.ButtonFace;    
         }
 
         private void Color_Click(object sender, EventArgs e)
