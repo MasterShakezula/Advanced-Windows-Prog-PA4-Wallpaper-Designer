@@ -291,6 +291,7 @@ namespace PA4Draft
             DialogResult d = t.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
+            
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -322,6 +323,10 @@ namespace PA4Draft
             DialogResult d = h.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
+            shapes[shapeList.SelectedIndex].fillBrush = new HatchBrush(h.hatch, h.BackColor, h.ForeColor);
+            updateTileDesign();
+            updateShapeList(shapeList.SelectedIndex);
+        
             shapes[shapeList.SelectedIndex].fillBrush = new HatchBrush(h.hatch, h.BackColor, h.ForeColor);
             updateTileDesign();
             updateShapeList(shapeList.SelectedIndex);
