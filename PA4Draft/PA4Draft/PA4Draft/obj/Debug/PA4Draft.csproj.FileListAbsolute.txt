@@ -55,3 +55,4 @@ C:\Users\ernes\Documents\GitHub\Advanced-Windows-Prog-PA4-Wallpaper-Designer\PA4
 C:\Users\ernes\Documents\GitHub\Advanced-Windows-Prog-PA4-Wallpaper-Designer\PA4Draft\PA4Draft\PA4Draft\obj\Debug\PA4Draft.exe
 C:\Users\ernes\Documents\GitHub\Advanced-Windows-Prog-PA4-Wallpaper-Designer\PA4Draft\PA4Draft\PA4Draft\obj\Debug\PA4Draft.pdb
 C:\Users\ernes\Documents\GitHub\Advanced-Windows-Prog-PA4-Wallpaper-Designer\PA4Draft\PA4Draft\PA4Draft\obj\Debug\PA4Draft.TextureBrushForm.resources
+C:\Users\Samue\Downloads\PA4Draft\Advanced-Windows-Prog-PA4-Wallpaper-Designer\PA4Draft\PA4Draft\PA4Draft\obj\Debug\PA4Draft.TextureBrushForm.resources
