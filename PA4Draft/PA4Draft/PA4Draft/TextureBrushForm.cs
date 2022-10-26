@@ -20,6 +20,7 @@ namespace PA4Draft
         {
             InitializeComponent();
             PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = imageSelected;
             
         }
 
