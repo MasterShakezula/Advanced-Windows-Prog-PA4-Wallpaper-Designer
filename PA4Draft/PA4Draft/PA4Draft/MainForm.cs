@@ -289,12 +289,17 @@ namespace PA4Draft
 
         private void HatchBrush_Click(object sender, EventArgs e)
         {
+            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
+                return; //make a PickHatchBrush form
+                        // PickHatchBrush h = new PickHatchBrush();
 
         }
 
         private void LinearGradient_Click(object sender, EventArgs e)
         {
-
+            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
+                return; //make a PickLinearGradient form
+                        // PickLinearGradient l = new PickLinearGradient();
         }
     }
 }
