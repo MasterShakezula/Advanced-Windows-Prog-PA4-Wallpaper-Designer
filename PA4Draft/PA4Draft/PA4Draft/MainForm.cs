@@ -314,6 +314,9 @@ namespace PA4Draft
             DialogResult d = l.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
+            shapes[shapeList.SelectedIndex].fillBrush = new LinearGradientBrush(new Rectangle(0, l.size, this.ClientRectangle.Height / 10, this.ClientRectangle.Height / 10), l.startingColors, l.endingColors, l.angle);
+            updateTileDesign();
+            updateShapeList(shapeList.SelectedIndex);
         }
     }
 }
