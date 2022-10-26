@@ -291,28 +291,6 @@ namespace PA4Draft
             DialogResult d = t.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
-            
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(imageSelected);
-=======
-            
->>>>>>> Stashed changes
-=======
-            
->>>>>>> Stashed changes
-=======
-            
->>>>>>> Stashed changes
-=======
-            
->>>>>>> Stashed changes
-=======
-            
->>>>>>> Stashed changes
         }
 
         private void HatchBrush_Click(object sender, EventArgs e)
@@ -323,10 +301,6 @@ namespace PA4Draft
             DialogResult d = h.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
-            shapes[shapeList.SelectedIndex].fillBrush = new HatchBrush(h.hatch, h.BackColor, h.ForeColor);
-            updateTileDesign();
-            updateShapeList(shapeList.SelectedIndex);
-        
             shapes[shapeList.SelectedIndex].fillBrush = new HatchBrush(h.hatch, h.BackColor, h.ForeColor);
             updateTileDesign();
             updateShapeList(shapeList.SelectedIndex);
