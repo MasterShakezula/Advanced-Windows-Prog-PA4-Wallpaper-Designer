@@ -156,10 +156,10 @@ namespace PA4Draft
 
         private void SolidBrush_Click(object sender, EventArgs e)
         {
-            if (shapeList.SelectedIndex < 0)
+            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return;
-            PickSolidBrush p = new PickSolidBrush();
-            DialogResult d = p.ShowDialog();
+            PickSolidBrush p = new PickSolidBrush(); //this is a form created
+            DialogResult d = p.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
             shapes[shapeList.SelectedIndex].fillBrush = new SolidBrush(p.pickedColor);
@@ -278,6 +278,23 @@ namespace PA4Draft
         private void shapeType_SelectedIndexChanged(object sender, EventArgs e)
         {
             addShapeButton.Enabled =shapeType.SelectedIndex>=0;
+        }
+
+        private void TextureBrush_Click(object sender, EventArgs e)
+        {
+            if (shapeList.SelectedIndex < 0) //if there is no listed shapes
+                return; //make a PickTextureBrush form
+           // PickTextureBrush t = new PickTextureBrush();
+        }
+
+        private void HatchBrush_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LinearGradient_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
