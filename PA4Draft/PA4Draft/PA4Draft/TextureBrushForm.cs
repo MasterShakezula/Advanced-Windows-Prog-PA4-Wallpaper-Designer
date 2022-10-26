@@ -15,7 +15,7 @@ namespace PA4Draft
     {
         System.Drawing.Image imageSelected;
         int xAxis = 1;  //if radioButton checked, becomes -1, flip
-        int yAxis = 1;    //both checked, both -1, flip on both axis
+        int yAxis = 1;    //y checked, y flip, if both checked, both -1, flip on both axis
         public TextureBrushForm()
         {
             InitializeComponent();

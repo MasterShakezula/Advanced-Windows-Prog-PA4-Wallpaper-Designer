@@ -290,7 +290,9 @@ namespace PA4Draft
             if (d != DialogResult.OK)
                 return;
 
-            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(t.);
+            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(t.image);
+            updateTileDesign();
+            updateShapeList(shapeList.SelectedIndex);
 
         }
 
