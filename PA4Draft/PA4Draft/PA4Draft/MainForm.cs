@@ -13,6 +13,7 @@ namespace PA4Draft
 {
     public partial class MainForm : Form
     {
+
         public enum MirrorStyle { 
             NoMirroring,
             XAxis,
@@ -281,6 +282,7 @@ namespace PA4Draft
             updateShapeList(shapeList.SelectedIndex);
         } // use this fucntion as references for the other three
 
+        String imagelocation;
         private void TextureBrush_Click(object sender, EventArgs e)
         {
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
@@ -290,7 +292,18 @@ namespace PA4Draft
             if (d != DialogResult.OK)
                 return;
 
-            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(t.image);
+            using(TextureBrushForm f2 = new TextureBrushForm())
+            {
+                if (f2.ShowDialog() == DialogResult.OK)
+                {
+                    imagelocation = f2.image
+                }
+            }
+            imagelocation = TextureBrushForm.imagelocation1;
+            Image pic = TextureBrushForm.imagelocation;
+            TextureBrush tBrush = new TextureBrush(new Bitmap());
+            tBrush.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
+            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(new Bitmap());
             updateTileDesign();
             updateShapeList(shapeList.SelectedIndex);
 
