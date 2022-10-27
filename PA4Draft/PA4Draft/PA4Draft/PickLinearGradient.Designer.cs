@@ -109,6 +109,7 @@ namespace PA4Draft
             // 
             this.textBox2.Location = new System.Drawing.Point(181, 180);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(179, 26);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "Linear Gradient Mode";
@@ -122,7 +123,6 @@ namespace PA4Draft
             this.diagonal.Name = "diagonal";
             this.diagonal.Size = new System.Drawing.Size(97, 24);
             this.diagonal.TabIndex = 9;
-            this.diagonal.TabStop = true;
             this.diagonal.Text = "Diagonal";
             this.diagonal.UseVisualStyleBackColor = true;
             this.diagonal.CheckedChanged += new System.EventHandler(this.diagonal_CheckedChanged);
@@ -134,13 +134,14 @@ namespace PA4Draft
             this.vertical.Name = "vertical";
             this.vertical.Size = new System.Drawing.Size(87, 24);
             this.vertical.TabIndex = 10;
-            this.vertical.TabStop = true;
             this.vertical.Text = "Vertical";
             this.vertical.UseVisualStyleBackColor = true;
+            this.vertical.CheckedChanged += new System.EventHandler(this.vertical_Checked);
             // 
             // horizontal
             // 
             this.horizontal.AutoSize = true;
+            this.horizontal.Checked = true;
             this.horizontal.Location = new System.Drawing.Point(333, 250);
             this.horizontal.Name = "horizontal";
             this.horizontal.Size = new System.Drawing.Size(106, 24);
@@ -148,7 +149,7 @@ namespace PA4Draft
             this.horizontal.TabStop = true;
             this.horizontal.Text = "Horizontal";
             this.horizontal.UseVisualStyleBackColor = true;
-            this.horizontal.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.horizontal.CheckedChanged += new System.EventHandler(this.horizontal_Checked);
             // 
             // PickLinearGradient
             // 

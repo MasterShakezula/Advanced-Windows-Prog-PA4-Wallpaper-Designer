@@ -15,8 +15,8 @@ namespace PA4Draft
     
     public partial class PickLinearGradient : Form
     {
-        Color startingColors, endingColors;
-        int size;
+        public Color startingColors, endingColors;
+        public int size, angle;
 
         public PickLinearGradient()
         {
@@ -46,14 +46,19 @@ namespace PA4Draft
 
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void horizontal_Checked(object sender, EventArgs e)
         {
+            angle = 180;
+        }
 
+        private void vertical_Checked(object sender, EventArgs e)
+        {
+            angle = 90;
         }
 
         private void diagonal_CheckedChanged(object sender, EventArgs e)
         {
-
+            angle = 45;
         }
 
         private void endingColorChange(object sender, EventArgs e)
