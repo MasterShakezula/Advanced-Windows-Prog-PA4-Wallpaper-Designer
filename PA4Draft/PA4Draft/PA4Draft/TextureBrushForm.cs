@@ -17,7 +17,7 @@ namespace PA4Draft
         System.Drawing.Image imageSelected;
         public int xAxis = 1;  //if radioButton checked, becomes -1, flip
         public int yAxis = 1;    //y checked, y flip, if both checked, both -1, flip on both axis
-        public int xyAxis = -1;
+        public int xyAxis = 1;
         
         
 
