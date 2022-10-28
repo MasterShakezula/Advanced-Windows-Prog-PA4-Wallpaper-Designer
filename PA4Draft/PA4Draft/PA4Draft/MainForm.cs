@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PA4Draft
@@ -14,7 +9,8 @@ namespace PA4Draft
     public partial class MainForm : Form
     {
 
-        public enum MirrorStyle { 
+        public enum MirrorStyle
+        {
             NoMirroring,
             XAxis,
             YAxis,
@@ -29,7 +25,7 @@ namespace PA4Draft
             mirrorStyle = MirrorStyle.NoMirroring;
         }
 
-       
+
 
         private void AddSignature_Click(object sender, EventArgs e)
         {
@@ -50,7 +46,7 @@ namespace PA4Draft
             f.MinimumSize = signature.Size;
             f.MaximumSize = signature.Size;
             f.Show();
-            
+
         }
 
         private void saveSignatureAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,7 +73,7 @@ namespace PA4Draft
 
         private void AddShapeClick(object sender, EventArgs e)
         {
-            if (shapeType.SelectedIndex==0)
+            if (shapeType.SelectedIndex == 0)
             {
                 AddEllipse addShapeDialog = new AddEllipse();
                 DialogResult d = addShapeDialog.ShowDialog();
@@ -97,7 +93,7 @@ namespace PA4Draft
                     shapes.Add(new Shape(ShapeType.Rectangle, locationAndSize, null, new Pen(addShapeDialog.drawingPenColor, addShapeDialog.drawingPenWidth)));
                 }
             }
-            updateShapeList(shapes.Count-1);
+            updateShapeList(shapes.Count - 1);
             updateTileDesign();
 
         }
@@ -114,9 +110,9 @@ namespace PA4Draft
                     switch (s.type)
                     {
                         case ShapeType.Rectangle:
-                        g.DrawRectangle(s.drawPen, new Rectangle(s.locationAndSize[0], s.locationAndSize[1], s.locationAndSize[2], s.locationAndSize[3]));
-                        if(s.fillBrush != null)
-                            g.FillRectangle(s.fillBrush, new Rectangle(s.locationAndSize[0], s.locationAndSize[1], s.locationAndSize[2], s.locationAndSize[3]));
+                            g.DrawRectangle(s.drawPen, new Rectangle(s.locationAndSize[0], s.locationAndSize[1], s.locationAndSize[2], s.locationAndSize[3]));
+                            if (s.fillBrush != null)
+                                g.FillRectangle(s.fillBrush, new Rectangle(s.locationAndSize[0], s.locationAndSize[1], s.locationAndSize[2], s.locationAndSize[3]));
                             break;
                         case ShapeType.Ellipse:
                             g.DrawEllipse(s.drawPen, new Rectangle(s.locationAndSize[0], s.locationAndSize[1], s.locationAndSize[2], s.locationAndSize[3]));
@@ -133,7 +129,7 @@ namespace PA4Draft
             deleteButton.Enabled = (shapeList.SelectedIndex >= 0);
             brushButtons.Enabled = (shapeList.SelectedIndex >= 0);
             up.Enabled = (shapeList.SelectedIndex > 0);
-            down.Enabled = (shapeList.SelectedIndex >= 0 && shapeList.SelectedIndex < shapes.Count-1);
+            down.Enabled = (shapeList.SelectedIndex >= 0 && shapeList.SelectedIndex < shapes.Count - 1);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -143,7 +139,7 @@ namespace PA4Draft
             shapes.RemoveAt(shapeList.SelectedIndex);
             updateTileDesign();
             updateShapeList(-1);
-            
+
         }
 
         private void updateShapeList(int nextSelectedIndex)
@@ -155,11 +151,11 @@ namespace PA4Draft
 
         }
 
-        
+
 
         private void preview_Click(object sender, EventArgs e)
         {
-            Preview f = new Preview(tileDesign.Image, new Size((int)widthInput.Value, (int)heightInput.Value),(int)repsPerRow.Value,(int)repsPerColumn.Value,signature,mirrorStyle);
+            Preview f = new Preview(tileDesign.Image, new Size((int)widthInput.Value, (int)heightInput.Value), (int)repsPerRow.Value, (int)repsPerColumn.Value, signature, mirrorStyle);
             f.ShowDialog();
         }
 
@@ -183,7 +179,7 @@ namespace PA4Draft
                 ((TextureBrush)b).WrapMode = WrapMode.TileFlipY;
             else if (mirrorStyle == MirrorStyle.XYAxis)
                 ((TextureBrush)b).WrapMode = WrapMode.TileFlipXY;
-            g.FillRectangle(b, new Rectangle(0,0, (int)widthInput.Value, (int)heightInput.Value));
+            g.FillRectangle(b, new Rectangle(0, 0, (int)widthInput.Value, (int)heightInput.Value));
             if (signature != null)
                 g.DrawImage(new Bitmap(signature, 100, 50), new Point((int)widthInput.Value - 125, (int)heightInput.Value - 75));
             DialogResult d = saveAsImage.ShowDialog();
@@ -200,19 +196,19 @@ namespace PA4Draft
             shapes.RemoveAt(selected);
             shapes.Insert(selected - 1, s);
             updateTileDesign();
-            updateShapeList(selected-1);
+            updateShapeList(selected - 1);
         }
 
         private void Down_Click(object sender, EventArgs e)
         {
             int selected = shapeList.SelectedIndex;
-            if (selected < 0 || selected == shapes.Count-1)
+            if (selected < 0 || selected == shapes.Count - 1)
                 return;
             Shape s = shapes[selected];
             shapes.RemoveAt(selected);
             shapes.Insert(selected + 1, s);
             updateTileDesign();
-            updateShapeList(selected+1);
+            updateShapeList(selected + 1);
         }
 
         private void Default_Click(object sender, EventArgs e)
@@ -241,7 +237,7 @@ namespace PA4Draft
             {
                 xAxisMirroring.Checked = true;
                 defaultMirroring.Checked = false;
-                mirrorStyle = yAxisMirroring.Checked? MirrorStyle.XYAxis: MirrorStyle.XAxis;
+                mirrorStyle = yAxisMirroring.Checked ? MirrorStyle.XYAxis : MirrorStyle.XAxis;
             }
         }
         private void YAxis_Click(object sender, EventArgs e)
@@ -253,7 +249,7 @@ namespace PA4Draft
                     yAxisMirroring.Checked = false;
                     mirrorStyle = MirrorStyle.XAxis;
                 }
-                    
+
                 else
                     return;
             }
@@ -267,7 +263,7 @@ namespace PA4Draft
 
         private void shapeType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            addShapeButton.Enabled =shapeType.SelectedIndex>=0;
+            addShapeButton.Enabled = shapeType.SelectedIndex >= 0;
         }
         private void SolidBrush_Click(object sender, EventArgs e)
         {
@@ -282,28 +278,34 @@ namespace PA4Draft
             updateShapeList(shapeList.SelectedIndex);
         } // use this fucntion as references for the other three
 
-        String imagelocation;
+        //String imagelocation;
         private void TextureBrush_Click(object sender, EventArgs e)
         {
+
+            String imageLocation;
             if (shapeList.SelectedIndex < 0) //if there is no listed shapes
                 return; //make a PickTextureBrush form
             TextureBrushForm t = new TextureBrushForm();
             DialogResult d = t.ShowDialog(); //show the form
             if (d != DialogResult.OK)
                 return;
+            if ((d == DialogResult.Cancel || d == DialogResult.OK) && t.imageLocation1 == null) return;
+            /* using(TextureBrushForm f2 = new TextureBrushForm())
+             { dont need this block
+                 if (f2.ShowDialog() == DialogResult.OK)
+                 {
+                     imageLocation = f2.imageLocation1;
+                 }
+             }*/
+            imageLocation = t.imageLocation1;
 
-            using(TextureBrushForm f2 = new TextureBrushForm())
-            {
-                if (f2.ShowDialog() == DialogResult.OK)
-                {
-                    imagelocation = f2.image
-                }
-            }
-            imagelocation = TextureBrushForm.imagelocation1;
-            Image pic = TextureBrushForm.imagelocation;
-            TextureBrush tBrush = new TextureBrush(new Bitmap());
-            tBrush.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
-            shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(new Bitmap());
+            Image pic = Bitmap.FromFile(imageLocation); //try to get this working
+            TextureBrush tBrush = new TextureBrush(new Bitmap(imageLocation));
+            TextureBrush nBrush = new TextureBrush(pic, t.wrapMode); //test this brush
+            //tBrush.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
+            //nBrush.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile; //hmmmm
+            //shapes[shapeList.SelectedIndex].fillBrush = new TextureBrush(new Bitmap());
+            shapes[shapeList.SelectedIndex].fillBrush = nBrush;
             updateTileDesign();
             updateShapeList(shapeList.SelectedIndex);
 
@@ -320,7 +322,7 @@ namespace PA4Draft
             shapes[shapeList.SelectedIndex].fillBrush = new HatchBrush(h.hatch, h.BackColor, h.ForeColor);
             updateTileDesign();
             updateShapeList(shapeList.SelectedIndex);
-        
+
         }
 
         private void LinearGradient_Click(object sender, EventArgs e)

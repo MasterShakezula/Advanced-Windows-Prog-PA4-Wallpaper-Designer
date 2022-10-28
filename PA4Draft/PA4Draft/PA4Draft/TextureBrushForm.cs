@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Configuration;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -14,12 +15,13 @@ namespace PA4Draft //hello
 {
     public partial class TextureBrushForm : Form
     {
-        System.Drawing.Image imageSelected;
-        public int xAxis = 1;  //if radioButton checked, becomes -1, flip
-        public int yAxis = 1;    //y checked, y flip, if both checked, both -1, flip on both axis
-        public int xyAxis = 1;
+        public System.Drawing.Image imageSelected;
         
-        
+        public WrapMode wrapMode = WrapMode.Tile; // default
+        public  String imageLocation1;
+
+
+
 
         public TextureBrushForm()
         {
@@ -40,7 +42,7 @@ namespace PA4Draft //hello
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    String imageLocation1 = ofd.FileName;
+                    imageLocation1 = ofd.FileName;
                     
                 }  
             }
@@ -48,12 +50,15 @@ namespace PA4Draft //hello
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            xAxis *= -1;
+            
+            wrapMode = WrapMode.TileFlipY;
+            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            yAxis *= -1;
+            
+            wrapMode = WrapMode.TileFlipX;
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -63,7 +68,8 @@ namespace PA4Draft //hello
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            xyAxis *= -1;
+            
+            wrapMode = WrapMode.TileFlipXY;
         }
     }
 }
